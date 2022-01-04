@@ -1,4 +1,15 @@
-## Welcome to GitHub Pages
+## Cours MIAGE
+
+
+| Département | Formation | Cours |
+|:-:|-|-|-|
+|  **MIAGE** | Licence MIAGE    | [Bases de données](stid-1a--bd) |
+|  **STID**  | DUT STID         | [Analyse Statistique des Données](lp-iot--python-ds) |
+
+
+
+
+
 
 You can use the [editor on GitHub](https://github.com/Ew-wang/miage/edit/main/README.md) to maintain and preview the content for your website in Markdown files.
 
