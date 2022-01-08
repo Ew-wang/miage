@@ -15,4 +15,9 @@
 | 1400 | GARDARIAN GEORGETTE  | 
 | 1600 | VENTRCU ATMANA       | 
 
-
+```
+REM -> Quelle est la liste des passagères de la base ?
+SELECT numpassager, nomprenompassager
+FROM PASSAGER
+WHERE sexe='F'
+```
