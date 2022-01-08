@@ -7,7 +7,7 @@
 *Résultat attendu :*
 
 | NUMPASSAGER | NOMPRENOMPASSAGER |
-|:-:|-|-|
+|:-:|:-:|-:|
 |  300 | BLANCA MARIE         | 
 |  700 | MARTION ELISE        | 
 | 1000 | BIERUNI JACQUELINE   | 
