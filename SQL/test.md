@@ -1,6 +1,6 @@
-# TD-2
+# TD-1 : Bilan Compétence SQL LMD
 
-## VERT
+### LOT 0 : requêtes à exprimer en SQL
 
-###### *AC1 Modification des script SQL pour ORACLE et SQL LITE afin qu’il ne soit plus possible de saisir plusieurs fois le même personnel dans la base.*
+#### 1. Quelle est la liste des passagères de la base ?
 
