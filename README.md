@@ -3,10 +3,8 @@
 
 | Département | Formation | Cours |
 |:-:|-|-|-|
-|  **MIAGE** | Licence MIAGE    | [Bases de données](sql/test.md) |
-|            |                  | [Bases de données](stid-1a--bd) |
-|            |                  | [Bases de données](stid-1a--bd) |
-|            |                  | [Bases de données](stid-1a--bd) |
+|  **MIAGE** | Licence MIAGE    | [Bases de données](sql--test.md) |
+|            |                  | [Bases de données] |
 
 
 
