@@ -4,7 +4,7 @@
 
 | N°TD : | Fichier  |
 |:-:|-|
-|  TD1 | [TD](TD/test.md)                              |
+|  TD1 | [TD](TD/TD1.md)                              |
 |      | [Correction](Correction/CorrectionTD1.md)     | 
-|  TD2 | [TD](TD/test.md)                              |
+|  TD2 | [TD](TD/TD2.md)                              |
 |      | [Correction](Correction/CorrectionTD2.md)     | 
