@@ -4,9 +4,7 @@
 
 | N°TD : | Fichier  |
 |:-:|:-|
-|  TD1 |        | 
-|      | MARTION ELISE        | 
-|  TD2 | BIERUNI JACQUELINE   | 
-| 1300 | VENDOVSKY ERICA      | 
-| 1400 | GARDARIAN GEORGETTE  | 
-| 1600 | VENTRCU ATMANA       | 
+|  TD1 | [TD](SQL/TD/test.md)                              |
+|      | [Correction](SQL/Correction/CorrectionTD1.md)     | 
+|  TD2 | [TD](SQL/TD/test.md)                              |
+|      | [Correction](SQL/Correction/CorrectionTD1.md)     | 
