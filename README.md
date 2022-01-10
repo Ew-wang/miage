@@ -2,7 +2,7 @@
 
 
 | Département | Formation | Cours |
-|:-:|-|-|-|
+|:-:|-|-|
 |  **MIAGE** | Licence MIAGE    | [Bases de données](SQL/TD.md) |
 |            |                  | [Bases de données] |
 
