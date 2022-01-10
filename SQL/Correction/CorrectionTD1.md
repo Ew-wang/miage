@@ -82,7 +82,7 @@ SELECT DISTINCT P.numPassager AS "Numéro du Passager",
 | Numéro du Passager	| Nom Prénom du passager |
 |-:|:-|
 |100|	LEONCE PIERRE  |
-|200| BORIEN JACQUES |
+|200| BORIEN JACQUES   |
 
 ```
 SELECT P.numPassager AS "Numéro du Passager", 
@@ -277,7 +277,7 @@ SELECT P.matricule AS "Numero du Pilote",
 
 | ANNEE | MOIS | Nombre de départs |
 |:-:|:-:|:-:|
-| 2020 | 01	2
+| 2020 | 01	| 2 |
 | 2021 | 01	| 1 |
 | 2021 | 04	| 1 |
 | 2021 | 10	| 2 |
