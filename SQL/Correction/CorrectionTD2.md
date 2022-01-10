@@ -216,9 +216,151 @@ DELETE LIVRE WHERE TitreLivre='HARRY POTTER'
 ### 2. 
 
 ```
+DROP TABLE PERSONNEL
+/
+CREATE TABLE PERSONNEL (
+    IdPersonnel INTEGER,
+    NomPersonnel VARCHAR(30) NOT NULL,
+    PrenomPersonnel VARCHAR(30) NOT NULL, 
+    AnneeNaissance INTEGER NOT NULL,
+    SalaireAnnuel NUMBER(10,2),
 
+    CONSTRAINT PK_PERSONNEL PRIMARY KEY(IdPersonnel)
+)
+/
+
+DROP TABLE EVOLUTION_SALAIRE
+/
+CREATE TABLE EVOLUTION_SALAIRE (
+    IdPersonnel INTEGER,
+    SalaireAnnuel NUMBER(10,2)
+)
+/
+
+-- *** Données
+
+INSERT INTO PERSONNEL (IdPersonnel, NomPersonnel, PrenomPersonnel,AnneeNaissance,SalaireAnnuel) VALUES (1, 'LEROYER','JEAN',1987,32400)
+/
+INSERT INTO PERSONNEL (IdPersonnel, NomPersonnel, PrenomPersonnel,AnneeNaissance,SalaireAnnuel) VALUES (2, 'PAROT','MARIE',1976,43700)
+/
+INSERT INTO PERSONNEL (IdPersonnel, NomPersonnel, PrenomPersonnel,AnneeNaissance,SalaireAnnuel) VALUES (3, 'LEONARDI','LUCAS',1965,27900)
+/
+INSERT INTO PERSONNEL (IdPersonnel, NomPersonnel, PrenomPersonnel,AnneeNaissance,SalaireAnnuel) VALUES (4, 'TRAVISON','LUCIE',1984,45999)
+/
+INSERT INTO PERSONNEL (IdPersonnel, NomPersonnel, PrenomPersonnel,AnneeNaissance,SalaireAnnuel) VALUES (5, 'TRAINIR','MELANIE',1995,31000)
+/
+
+-- *** Données
+
+INSERT INTO EVOLUTION_SALAIRE (IdPersonnel,SalaireAnnuel) VALUES (2,43900)
+/
+INSERT INTO EVOLUTION_SALAIRE (IdPersonnel,SalaireAnnuel) VALUES (4,46200)
+/
+INSERT INTO EVOLUTION_SALAIRE (IdPersonnel,SalaireAnnuel) VALUES (5,31200)
+/
+
+-- ** Correction : il faut ajouter un WHERE au UPDATE de façon à ne mettre à jour que les personnels présents
+-- dans la table EVOLUTION_SALAIRE. Sans quoi, ne le trouvant pas, la sous requête ramène NULL et écrase donc le salaire existant
+
+UPDATE PERSONNEL
+SET SalaireAnnuel = (SELECT SalaireAnnuel FROM EVOLUTION_SALAIRE WHERE PERSONNEL.IdPersonnel=EVOLUTION_SALAIRE.IdPersonnel)
+WHERE IdPersonnel IN (SELECT IdPersonnel FROM EVOLUTION_SALAIRE)
+/
 ```
 
+### 3.
+
+```
+DROP TABLE PILOTE
+/
+CREATE TABLE PILOTE(
+  Idpilote INTEGER,
+  Nompilote varchar(30),
+  PrenomPilote VARCHAR(30),
+
+  CONSTRAINT PK_PILOTE PRIMARY KEY(IdPilote),
+
+);
+/
+
+DROP TABLE DEPART
+/
+CREATE TABLE DEPART (
+  IdDepart INTEGER,
+  DateDepart DATE,
+  NumeroVol VARCHAR(10),
+
+  CONSTRAINT PK_DEPART PRIMARY KEY(IdDepart),
+)
+/
+
+DROP TABLE AFFECTATION
+/
+CREATE TABLE AFFECTATION (
+  IdDepart INTEGER,
+  IdPilote INTEGER,
+
+  CONSTRAINT PK_AFFECTATION PRIMARY KEY(IdDepart, IdPilote),
+  CONSTRAINT FK_AFFECTATION_PILOTE FOREIGN KEY(IdPIlote) REFERENCES PILOTE(IdPilote),
+  CONSTRAINT FK_AFFECTATION_DEPART FOREIGN KEY(IdDepart) REFERENCES DEPART(IdDepart),
+  CONSTRAINT FK_INCLUSION FOREIGN KEY(IdPIlote, IdDepart) REFERENCES HABILITATION(IdPilote,IdDepart)
+)
+/
+
+DROP TABLE HABILITATION
+/
+CREATE TABLE HABILITATION (
+  IdDepart INTEGER,
+  IdPilote INTEGER,
+
+  CONSTRAINT PK_HABILITATION PRIMARY KEY(IdDepart, IdPilote),
+  CONSTRAINT FK_HABILITATION_PILOTE FOREIGN KEY(IdPIlote) REFERENCES PILOTE(IdPilote),
+  CONSTRAINT FK_HABILITATION_DEPART FOREIGN KEY(IdDepart) REFERENCES DEPART(IdDepart)
+)
+
+/
+
+
+-- *** Données
+
+INSERT INTO PILOTE (IdPilote, NomPilote, PrenomPilote) VALUES (1, 'GARCIN','THOMAS')
+/
+INSERT INTO PILOTE (IdPilote, NomPilote, PrenomPilote) VALUES (2, 'ARIVELLO','CHRISTINE')
+/
+INSERT INTO PILOTE (IdPilote, NomPilote, PrenomPilote) VALUES (3, 'PRIMARIS','LEA')
+/
+
+INSERT INTO DEPART (IdDepart, DateDepart, NumeroVol) VALUES (1, '13/12/2016','AF333')
+/
+INSERT INTO DEPART (IdDepart, DateDepart, NumeroVol) VALUES (2, '16/12/2016','AF433')
+/
+INSERT INTO DEPART (IdDepart, DateDepart, NumeroVol) VALUES (3, '23/12/2016','AF822')
+/
+
+INSERT INTO HABILITATION (IdDepart, IdPilote) VALUES (1, 1)
+/
+INSERT INTO HABILITATION (IdDepart, IdPilote) VALUES (1, 3)
+/
+INSERT INTO HABILITATION (IdDepart, IdPilote) VALUES (3, 3)
+/
+
+INSERT INTO AFFECTATION (IdDepart, IdPilote) VALUES (3, 3)
+/
+
+-- *** Données
+
+INSERT INTO EVOLUTION_SALAIRE (IdPersonnel,SalaireAnnuel) VALUES (2,43900)
+/
+INSERT INTO EVOLUTION_SALAIRE (IdPersonnel,SalaireAnnuel) VALUES (4,46200)
+/
+INSERT INTO EVOLUTION_SALAIRE (IdPersonnel,SalaireAnnuel) VALUES (5,31200)
+/
+
+-- ** Requête générant l'anomalie
+
+INSERT INTO AFFECTATION (IdDepart, IdPilote) VALUES (2, 1)
+/
+```
 
 
 
