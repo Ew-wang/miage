@@ -7,4 +7,4 @@
 |  TD1 | [TD](SQL/TD/test.md)                              |
 |      | [Correction](SQL/Correction/CorrectionTD1.md)     | 
 |  TD2 | [TD](SQL/TD/test.md)                              |
-|      | [Correction](SQL/Correction/CorrectionTD1.md)     | 
+|      | [Correction](SQL/Correction/CorrectionTD2.md)     | 
