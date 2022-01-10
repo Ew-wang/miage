@@ -3,7 +3,7 @@
 
 | Département | Formation | Cours |
 |:-:|-|-|-|
-|  **MIAGE** | Licence MIAGE    | [Bases de données](SQL/CorrectionTD1.md) |
+|  **MIAGE** | Licence MIAGE    | [Bases de données](SQL/TD.md) |
 |            |                  | [Bases de données] |
 
 
