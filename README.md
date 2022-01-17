@@ -1,10 +1,10 @@
 ## Cours MIAGE
 
 
-| Département | Formation | Cours |
+| Formation | Semestres | Cours |
 |:-:|-|-|
-|  **MIAGE** | Licence MIAGE    | [Bases de données](SQL/TD.md) |
-|            |                  | [Bases de données] |
+|  **MIAGE** | L3 - Semestres 5 | [Bases de données](SQL/TD.md) |
+|            |                  | [Java Avancé](JAVA2/TD.md)    |
 
 
 
