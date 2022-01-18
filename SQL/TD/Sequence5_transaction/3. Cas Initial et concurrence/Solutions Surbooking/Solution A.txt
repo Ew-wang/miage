@@ -1,0 +1,63 @@
+
+SET FEEDBACK OFF
+SET LINESIZE 150
+SET PAGESIZE 40
+
+PROMPT --> DEBUT DU SCRIPT
+
+REM **************************************************************************
+REM SOLUTION A : SOLUTION AVEC TRIGGER
+REM ***************************************************************************
+
+PROMPT --> AJOUT DE LA COLONNE NbPlacesResa A LA TABLE DEPART
+
+ALTER TABLE DEPART 
+DROP COLUMN NbPlacesResa
+/
+
+ALTER TABLE DEPART 
+ADD ( NbPlacesResa INTEGER)
+/
+
+REM -> Synchronisation de la colonne NbPlacesResa  de la table départ
+
+Update depart d  set NbPlacesResa=(Select count(*) from reservation r where r.iddepart = d.iddepart)
+/
+
+PROMPT --> CREATION DU TRIGGER DE MISE A JOUR
+
+CREATE OR REPLACE TRIGGER T_MAJ_NBRE
+BEFORE INSERT ON RESERVATION
+FOR EACH ROW
+DECLARE 
+diff int;
+SURBOOK EXCEPTION;
+BEGIN
+UPDATE DEPART SET NbPlacesResa=NbPlacesResa+1 WHERE iddepart = :NEW.iddepart;
+
+SELECT capacite - NbPlacesResa into diff 
+from depart d, avion a 
+where d.numav=a.numav AND iddepart = :NEW.idDepart;
+If diff <0 THEN
+RAISE Surbook;
+END IF;
+EXCEPTION
+WHEN surbook THEN 
+Raise_application_error(-20001,'Surbooking');
+END;
+/
+SHOW ERR
+
+----------- TEST ---------------
+--- A tester sur 2 consoles SQLPLUS différente sur le même compte
+
+-- ************ Transaction 1 ******************************
+
+INSERT INTO RESERVATION VALUES (100, 3);
+INSERT INTO RESERVATIOn VALUES (200, 3);
+COMMIT;
+
+-- ************ Transaction 2 ******************************
+
+INSERT INTO RESERVATIOn VALUES (300, 3);
+COMMIT;

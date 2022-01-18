@@ -1,0 +1,33 @@
+REM ***************************************************
+REM *** Autheur : FESSY Jerome
+REM *** TRIGGER Surbooking 
+REM *** Base Aero.sql
+REM ***************************************************
+
+REM *****      CREATION DU TRIGGER
+
+CREATE OR REPLACE TRIGGER SurBOOK
+BEFORE INSERT ON RESERVATION
+FOR EACH ROW
+DECLARE
+	NB_Capa INT;
+	NB INT;
+BEGIN
+
+	SELECT capacite into NB_capa 
+	FROM avion a, depart d 
+	WHERE d.iddepart=:new.iddepart
+	AND a.numav=d.numav;
+
+	SELECT count(*) INTO nb 
+	FROM reservation 
+	WHERE iddepart=:new.iddepart;
+
+	IF nb >= nb_capa THEN
+		Raise_application_error(-20001,'Surbooking. Impossible de réserver');
+	END IF;
+END;
+/
+show err
+
+
