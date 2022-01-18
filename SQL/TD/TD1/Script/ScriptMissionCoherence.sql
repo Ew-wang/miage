@@ -11,7 +11,7 @@ ALTER SESSION SET NLS_DATE_FORMAT = 'dd/mm/yyyy';
 
 PROMPT --> DEBUT DU SCRIPT
 
-REM ** Requête SQL de création des tables **
+REM ** RequÃªte SQL de crÃ©ation des tables **
 
 DROP TABLE reservation CASCADE CONSTRAINTS PURGE
 /
@@ -111,7 +111,7 @@ ADD CONSTRAINT fk_reservation_depart
 	ON DELETE CASCADE
 /
 
-REM ** Les Requêtes d'insertion de données
+REM ** Les RequÃªtes d'insertion de donnÃ©es
 
 PROMPT INSERTION D'AVIONS
 
