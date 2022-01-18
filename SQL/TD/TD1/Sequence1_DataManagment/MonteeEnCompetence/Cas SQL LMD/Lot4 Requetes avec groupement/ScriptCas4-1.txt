@@ -1,0 +1,59 @@
+SET LINESIZE 150
+
+REM Cas4-1 SQL LMD : Requetes avec GROUP BY
+
+REM INFO -> La clause GROUP BY permet de réaliser des opérations de groupement sur des colonnes
+
+
+REM ***********************************************************************
+REM Etudier les variantes de la requête suivante : pour chaque pilote, son nombre de départs
+
+SELECT D.matricule, count(*) AS "Nombre de départ"
+FROM depart D
+GROUP BY D.matricule
+ORDER BY 2
+/
+
+SELECT P.matricule, P.nomPrenomPilote, count(*) AS "Nombre de départ"
+FROM pilote P, depart D
+WHERE d.matricule=P.matricule
+GROUP BY P.matricule, P.nomPrenomPilote 
+ORDER BY 3
+/
+
+
+REM *******************************A CORRIGER **************************************************
+REM Les variantes suivantes de la requête précédente génèrent une erreur ou anomalie. Pourquoi ?
+
+SELECT D.matricule, count(*) AS "Nombre de départ"
+FROM depart D
+ORDER BY 2
+/
+
+
+SELECT D.matricule, count(*) AS "Nombre de départ"
+FROM depart D
+GROUP BY D.matricule, D.numvol
+ORDER BY 2
+/
+
+SELECT P.matricule, P.nomPrenomPilote, count(*) AS "Nombre de départ"
+FROM pilote P, depart D
+WHERE d.matricule=P.matricule
+GROUP BY P.matricule
+ORDER BY 3 DESC 
+/
+
+SELECT P.matricule, P.nomPrenomPilote, count(*) AS "Nombre de départ"
+FROM pilote P, depart D
+WHERE d.matricule=P.matricule
+GROUP BY D.matricule, P.nomPrenomPilote 
+ORDER BY 3
+/
+
+SELECT P.matricule, P.nomPrenomPilote, count(P.grade) AS "Nombre de départ"
+FROM pilote P, depart D
+WHERE d.matricule=P.matricule
+GROUP BY P.matricule, P.nomPrenomPilote 
+ORDER BY 3
+/

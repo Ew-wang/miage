@@ -1,0 +1,56 @@
+SET LINESIZE 150
+
+
+REM  -> Cas0-3 SQL LMD : Requêtes avec condition
+
+REM INFO -> La clause WHERE est toujours un boolean : si VRAI la ligne est sélectionnée
+
+REM ************************************************************************************************************
+REM Testez et comprendre les différentes versions de la requête suivante :
+
+REM -> Quels sont les pilotes habitant CAEN?
+
+SELECT matricule, nomPrenomPilote, villedomicile
+FROM pilote
+WHERE villedomicile = 'CAEN'
+/
+
+SELECT matricule, nomPrenomPilote, villedomicile
+FROM pilote
+WHERE LOWER(villedomicile) = 'caen'
+/
+
+SELECT matricule, nomPrenomPilote, villedomicile
+FROM pilote
+WHERE villedomicile LIKE 'CAE%'
+/
+
+REM -> Quels sont les départs faits le 25 décembre 2019 ?
+
+SELECT numvol, datedepart
+FROM depart
+WHERE datedepart = '25/12/2019'
+/
+
+SELECT numvol, datedepart
+FROM depart
+WHERE datedepart = '25-12-2019'
+/
+
+REM ******************** A CORRIGER **************************************************
+REM Les variantes suivantes de la requête n'affichent rien. Pourquoi ?
+
+SELECT matricule, nomPrenomPilote, villedomicile
+FROM pilote
+WHERE villedomicile = 'caen'
+/
+
+SELECT matricule, nomPrenomPilote, villedomicile
+FROM pilote
+WHERE LOWER(villedomicile) = 'CAEN'
+/
+
+SELECT numvol, datedepart
+FROM depart
+WHERE datedepart = 25-11-2019
+/

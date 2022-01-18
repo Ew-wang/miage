@@ -1,0 +1,4 @@
+Oracle/SQL Tutorial (M. Gertz) : http://www.mathcs.emory.edu/~cheung/Courses/377/Others/tutorial.pdf
+SQL Quick Reference (Oracle) :http://docs.oracle.com/cd/B12037_01/server.101/b10758.pdf
+SQL Reference : http://docs.oracle.com/cd/B19306_01/server.102/b14200/toc.htm
+Oracle Relational SQL Cheatsheet : http://www.yagc.ndo.co.uk/cheatsheets/sql_cheatsheet.html

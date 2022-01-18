@@ -1,0 +1,34 @@
+SET LINESIZE 150
+
+
+REM -> Cas0-8 SQL LMD : Requêtes avec date
+REM INFO -> La table DUAL est la table de travail Oracle (1 lign avec 1 colonne de 1 caractère)
+
+
+REM ******************************************************************************
+REM Testez et comprendre les requêtes suivantes : 
+
+REM -> La date système ?
+
+SELECT  SYSDATE, CURRENT_DATE, CURRENT_TIMESTAMP FROM DUAL;
+/
+
+REM -> Quels sont les années des départs de la bases ?
+
+SELECT Distinct TO_CHAR(Datedepart, 'YYYY') FROM depart
+/
+
+REM -> Quels sont les départs de Décembre 2019 ?
+
+SELECT iddepart, datedepart FROM Depart WHERE TO_CHAR(Datedepart, 'MM-YYYY') = '12-2019'
+/
+
+REM ******************************* A CORRIGER ******************************************************************
+REM La requête suivante ne donnent pas le bon résultat. pourquoi ?
+
+REM -> Les pilotes et leur age ?
+SELECT matricule, anneenaiss +TO_CHAR(SYSDATE,'YYYY') AS "AGE" FROM pilote
+/
+
+
+

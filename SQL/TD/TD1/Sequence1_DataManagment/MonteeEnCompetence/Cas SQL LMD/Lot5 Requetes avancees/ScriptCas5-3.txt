@@ -1,0 +1,43 @@
+SET LINESIZE 150
+
+REM -> Cas 5-3 SQL LMD : Requete avec CASE ET GROUP BY
+
+REM *********************************************************************************
+REM Analyser cette requête :
+
+REM 	On souhaite afficher les passagers (Numero, nom, sexe) et leur "NIVEAU VOYAGEUR"
+REM     Niveau "Grand Voyageur" : si plus de 4 réservations. 
+REM	Niveau "Voyageur" entre 1 et 4 réservations. 
+REM	Niveau "Inactif" si 0 réservations enregistrées
+REM	Pour le Sexe,afficher "Homme" ou "Femme" au lieu de "M" et "F" 
+
+
+SELECT P.numpassager
+	, nomprenompassager
+	, DECODE (P.Sexe,'F','Femme','M','Homme',null) AS "Sexe"
+	, COUNT(r.iddepart) AS "Nombre de réservations"
+	, CASE
+		WHEN count(r.iddepart) =0 THEN 'INACTIF'
+		WHEN count(r.iddepart) Between 1 AND 4 THEN 'VOYAGEUR'
+		ELSE 'GRAND VOYAGEUR'
+	END AS "Niveau Voyageur"
+FROM passager P LEFT JOIN reservation r ON r.numpassager=p.numpassager
+GROUP BY p.numpassager, P.nomprenompassager, P.Sexe
+ORDER BY 4 DESC, 3 DESC 
+/
+
+REM ********************************** A CORRIGER **********************************
+REM La variante suivante de la requête génère une anomalie. Pourquoi ?
+
+SELECT P.numpassager
+	, nomprenompassager
+	, DECODE (P.Sexe,'F','Femme','M','Homme',null) AS "Sexe"
+	, CASE
+		WHEN count(*) =0 THEN 'INACTIF'
+		WHEN count(*) Between 1 AND 4 THEN 'VOYAGEUR'
+		ELSE 'GRAND VOYAGEUR'
+	END AS "Niveau Voyageur"
+FROM passager P LEFT JOIN reservation r ON r.numpassager=p.numpassager
+GROUP BY p.numpassager, P.nomprenompassager, P.Sexe
+ORDER BY 4 DESC, 3 DESC 
+/

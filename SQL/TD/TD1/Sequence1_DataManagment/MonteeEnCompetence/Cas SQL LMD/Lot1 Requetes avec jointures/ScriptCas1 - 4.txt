@@ -1,0 +1,32 @@
+SET LINESIZE 150
+
+REM -> Cas1-3 SQL LMD : Jointure d'une table avec elle-même (Auto jointure)
+
+
+REM **********************************************************************************************
+REM Etudiez les variantes de la requête suivante : Les pilotes qui habitent dans la même ville ?
+REM -> Jointure par sous requête IN 
+
+SELECT P1.matricule, P1.nomPrenomPilote, P2.matricule, P2.nomPrenomPilote, P1.villedomicile
+FROM pilote P1, pilote P2
+WHERE P1.villedomicile=P2.villedomicile
+ORDER BY 1
+/
+
+SELECT P1.matricule, P1.nomPrenomPilote, P2.matricule, P2.nomPrenomPilote, P1.villedomicile
+FROM pilote P1, pilote P2
+WHERE P1.villedomicile=P2.villedomicile
+AND P1.matricule <> P2.matricule
+ORDER BY 1
+/
+
+
+
+REM *************************** A CORRIGER **************************************************************
+REM La requête suivante génère trop de données. pourquoi ? : Les vols partant à la même heure ?
+
+SELECT v1.numvol, v2.numvol, TO_CHAR(v2.heuredepart, 'HH24') AS "HEURE DEPART"
+FROM vol v1, vol V2
+WHERE TO_CHAR(v1.heuredepart,'HH24') = TO_CHAR(v2.heuredepart, 'HH24')
+ORDER BY 1
+/

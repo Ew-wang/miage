@@ -1,0 +1,49 @@
+SET LINESIZE 150
+
+
+REM  -> Cas0-4 SQL LMD : Requêtes simples SQL avec filtre plus élaboré
+
+REM INFO -> La clause WHERE est un booléan. Les opérateurs booléan courants : AND / OR / NOT / IN / BETWEEN 
+
+
+REM ********************************************************************************************************
+REM Comprendre la requête suivante : Les pilotes habitant CAEN avec un salaire > 6000€?
+
+SELECT matricule, nomPrenomPilote, villedomicile
+FROM pilote
+WHERE villedomicile = 'CAEN' AND Salaire > 6000
+/
+
+REM ********************************************************************************************************
+REM Comprendre la requête suivante : Les pilotes nés entre 1967 et 2002?
+
+SELECT matricule, nomPrenomPilote, villedomicile
+FROM pilote
+WHERE anneenaiss >=1967 AND  anneenaiss <=2002
+/
+
+SELECT matricule, nomPrenomPilote, villedomicile
+FROM pilote
+WHERE anneenaiss BETWEEN 1967 AND 2002
+/
+
+REM ********************************************************************************************************
+REM Comprendre la requête suivante : Les pilotes habitant CAEN ou CHERBOURG?
+
+SELECT matricule, nomPrenomPilote, villedomicile
+FROM pilote
+WHERE villedomicile = 'CAEN' OR villedomicile = 'CHERBOURG'
+/
+
+SELECT matricule, nomPrenomPilote, villedomicile
+FROM pilote
+WHERE villedomicile IN ( 'CAEN' ,'CHERBOURG')
+/
+
+REM ************************** A CORRIGER *****************************************************
+REM La requête suivante n'affiche rien. Pourquoi ? Quels sont les pilotes nés en 1995 et 1967?
+
+SELECT matricule, nomPrenomPilote, villedomicile
+FROM pilote
+WHERE anneenaiss=1995 AND anneenaiss=1967
+/

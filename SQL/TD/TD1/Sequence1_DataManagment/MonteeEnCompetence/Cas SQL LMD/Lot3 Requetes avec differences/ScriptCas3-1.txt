@@ -1,0 +1,66 @@
+SET LINESIZE 150
+
+REM -> Cas3-1 SQL LMD : Etudes des requêtes de différences
+
+REM INFO -> La difference ensembliste s'exprime de differentes façons : NOT IN / MINUS / NOT EXISTS
+
+REM ********************************************************************************************
+REM Etudiez les variantes de la requête suivante : Les pilotes qui n'effectuent pas de départs ?
+
+REM -> Syntaxe NOT IN
+
+SELECT P.matricule, P.nomPrenomPilote
+FROM pilote P
+WHERE P.matricule NOT IN ( SELECT d.matricule FROM depart d)
+ORDER BY 1
+/
+
+REM -> Syntaxe NOT EXISTS
+
+SELECT P.matricule, P.nomPrenomPilote
+FROM pilote P
+WHERE NOT EXISTS ( SELECT NULL FROM depart d WHERE d.matricule=P.matricule)
+ORDER BY 1
+/
+
+REM -> Syntaxe MINUS 
+
+SELECT P.matricule, P.nomPrenomPilote
+FROM pilote P
+MINUS
+SELECT P.matricule, P.nomPrenomPilote FROM pilote p, depart d 
+WHERE d.matricule=P.matricule
+ORDER BY 1
+/
+
+REM -> Syntaxe Avec jointure externe
+
+SELECT P.matricule, P.nomPrenomPilote
+FROM pilote P LEFT JOIN DEPART D ON P.matricule = D.matricule
+WHERE D.numvol IS NULL
+ORDER BY 1
+/
+
+REM ***************************** BIZARRE !!!  *******************************************************
+REM Modifier la base le départ 'AF421' avec la requête suivante puis relancer les requêtes précédentes.
+REM Pourquoi n'obtient-on plus la même chose pour la requête NOT IN ?
+
+
+UPDATE depart SET matricule = NULL WHERE numvol = 'AF421'
+/
+
+
+REM ********************************* A CORRIGER **************************************************
+REM Les variantes suivantes génèrent des erreurs. pourquoi ?
+
+SELECT P.matricule, P.nomPrenomPilote
+FROM pilote P
+WHERE P.matricule NOT IN ( SELECT * FROM depart d)
+ORDER BY 1
+/
+
+SELECT P.matricule, P.nomPrenomPilote
+FROM pilote P
+WHERE NOT EXISTS ( SELECT NULL FROM depart d )
+ORDER BY 1
+/

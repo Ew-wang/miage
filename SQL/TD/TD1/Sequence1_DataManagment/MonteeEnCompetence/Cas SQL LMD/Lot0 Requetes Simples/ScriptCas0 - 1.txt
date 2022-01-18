@@ -1,0 +1,42 @@
+SET LINESIZE 150
+
+REM  -> Cas0-1 SQL LMD : Requêtes simples SQL 
+
+
+REM INFO -> Le SQL est ensembliste : la table mise dans le FROM est parcourue ligne par ligne
+
+REM **********************************************************************************************************
+REM Testez et comprendre les différentes versions de la requête suivante : 
+REM Quels sont les pilotes de la base ?
+
+
+SELECT matricule, nomPrenomPilote
+FROM pilote
+/
+
+SELECT pilote.matricule, pilote.nomPrenomPilote
+FROM pilote
+/
+
+SELECT P.matricule, P.nomPrenomPilote
+FROM pilote P
+/
+
+SELECT P.matricule AS "Numero", P.nomPrenomPilote AS "Nom Prénom du Pilote"
+FROM pilote P
+/
+
+SELECT 'Le pilote  : '|| matricule || ' s''appelle :' || nomPrenomPilote AS "Pilote"
+FROM pilote
+/
+
+REM ************************A CORRIGER **************************************************
+REM Les variantes suivantes de la requête génèrent des erreurs : les corriger
+
+SELECT P.matricule, P.nomPrenomPilote
+FROM pilote 
+/
+
+SELECT P.matricule, Pilote.nomPrenomPilote
+FROM pilote p
+/

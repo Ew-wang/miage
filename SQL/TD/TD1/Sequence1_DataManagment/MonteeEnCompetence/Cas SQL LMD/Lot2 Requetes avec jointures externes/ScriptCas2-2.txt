@@ -1,0 +1,26 @@
+SET LINESIZE 150
+
+REM -> Cas 2-2 SQL LMD : Jointures externe et fonction AVG
+
+REM INFO -> La fonction NVL permet d'affecter une valeur à une valeur NULL
+
+
+REM *************************************************************************************************************************
+REM On souhaite afficher TOUS les pilotes de la base (matricule, nomprenom) ainsi que leurs départs pour ceux qui en ont fait 
+REM Analyser la différence entre ces jointures :
+
+REM ->  jointure standard
+
+SELECT DISTINCT P.matricule, P.nomPrenomPilote, P.villeDomicile, NVL(D.numvol,'AUCUN') as "Vol"
+FROM pilote P LEFT JOIN Depart D ON P.matricule=d.matricule
+ORDER BY 1
+/
+
+
+REM ****************************A CORRIGER *************************************************
+REM Pourquoi cette variante ne donne-t-elle pas le même résultat ?
+
+SELECT DISTINCT P.matricule, P.nomPrenomPilote, P.villeDomicile, D.numvol
+FROM Depart D INNER JOIN pilote P  ON P.matricule=d.matricule
+ORDER BY 1
+/

@@ -1,0 +1,42 @@
+SET LINESIZE 150
+
+REM Cas4-3 SQL LMD : Requetes avec GROUP BY et HAVING
+
+REM INFO -> La clause HAVING permet d'ajouter une condition booléenne à un groupement
+REM INFO -> Le booléen du HAVING porte sur des groupement et doit donc comporter des fonctions d'aggrégats
+
+
+REM *****************************************************************************************
+REM Analyser les requêtes suivantes : 
+
+REM -> les pilotes réalisant au moins 3 départs
+
+SELECT P.matricule, P.NomPrenomPilote, COUNT(D.numvol) AS "Nombre de départ"
+FROM pilote P, depart D
+WHERE P.matricule=D.matricule
+GROUP BY P.matricule, P.NomPrenomPilote
+HAVING COUNT(*) >2
+/
+
+REM -> les pilotes habitant COUTANCE réalisant au moins 3 départs
+
+SELECT P.matricule, P.NomPrenomPilote, COUNT(D.numvol) AS "Nombre de départ"
+FROM pilote P, depart D
+WHERE P.matricule=D.matricule
+AND VilleDomicile = 'COUTANCE'
+GROUP BY P.matricule, P.NomPrenomPilote
+HAVING count(*) >1 
+/
+
+REM *******************************A CORRIGER **************************************
+REM La variante suivante de la requête précédente génère une anomalie. Pourquoi ?
+
+
+
+SELECT P.matricule, P.NomPrenomPilote, COUNT(D.numvol) AS "Nombre de départ"
+FROM pilote P, depart D
+WHERE P.matricule=D.matricule
+GROUP BY P.matricule, P.NomPrenomPilote
+HAVING count(*) >1  AND VilleDomicile = 'COUTANCE'
+/
+

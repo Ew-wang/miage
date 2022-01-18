@@ -1,0 +1,42 @@
+SET LINESIZE 150
+
+REM -> Cas 5-2 SQL LMD : Requete avec CASE ET DECODE
+
+REM INFO -> Il est possible de traiter de réaliser des traitements conditionnels en SQL
+REM INFO -> Les FONCTION DECODE ET CASE permettent de réaliser des conditions simples et complexes
+
+
+REM ********************************
+REM Analyser les variantes de la requête suivante :
+
+REM -> Afficher les passagers : Numero, nom, sexe en affichant "Homme" ou "Femme" au lieu de "M" et "F" 
+
+SELECT numpassager, nomprenompassager, Sexe, DECODE (Sexe,'F','Femme','M','Homme',null) AS "Sexe avec decode"
+FROM passager
+ORDER BY 2 DESC, 3 DESC 
+/
+
+SELECT numpassager
+	, nomprenompassager
+	, CASE
+		WHEN sexe = 'M' THEN 'Homme'
+		WHEN sexe = 'F' THEN 'Femme'
+		ELSE 'Non renseigné'
+	END AS "Sexe"
+FROM passager
+ORDER BY 2 DESC, 3 DESC 
+/
+
+REM ********************************** A CORRIGER **********************************
+REM La variante suivante de la requête génére une erreur. Pourquoi ?
+
+
+SELECT 'Le passager : ' || numpassager || ' ' || nomprenompassager || ' est de sexe ' ||
+	CASE
+		WHEN sexe = 'M' THEN 'Homme'
+		WHEN sexe = 'F' THEN 'Femme'
+		ELSE 'Non renseigné'
+	END AS "INFO"
+FROM passager
+ORDER BY 2 DESC
+/

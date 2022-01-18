@@ -1,0 +1,41 @@
+SET LINESIZE 150
+
+REM -> Cas 2-1 SQL LMD : Jointures externe
+
+REM INFO -> Une jointure externe est une extension de la jointure.
+REM INFO -> Elle permet d'afficher totalement les données d'une table même si elles ne sont pas en correspondances avec les données de l'autre table
+
+
+REM *************************************************************************************************************************
+REM On souhaite afficher TOUS les pilotes de la base (matricule, nomprenom) ainsi que leurs départs pour ceux qui en ont fait 
+REM Analyser la différence entre ces jointures :
+
+REM ->  jointure standard
+
+SELECT DISTINCT P.matricule, P.nomPrenomPilote, P.villeDomicile, D.numvol
+FROM pilote P INNER JOIN Depart D ON P.matricule=d.matricule
+ORDER BY 1
+/
+
+REM ->  jointure externe gauche
+
+SELECT DISTINCT P.matricule, P.nomPrenomPilote, P.villeDomicile, D.numvol
+FROM pilote P LEFT OUTER JOIN Depart D ON P.matricule=d.matricule
+ORDER BY 1
+/
+
+REM ->  jointure externe droite
+
+SELECT DISTINCT P.matricule, P.nomPrenomPilote, P.villeDomicile, D.numvol
+FROM Depart D RIGHT OUTER JOIN pilote P  ON P.matricule=d.matricule
+ORDER BY 1
+/
+
+
+REM ****************************A CORRIGER*************************************************
+REM Pourquoi cette variante ne donne-t-elle pas le même résultat ?
+
+SELECT DISTINCT P.matricule, P.nomPrenomPilote, P.villeDomicile, D.numvol
+FROM Depart D LEFT OUTER JOIN pilote P  ON P.matricule=d.matricule
+ORDER BY 1
+/

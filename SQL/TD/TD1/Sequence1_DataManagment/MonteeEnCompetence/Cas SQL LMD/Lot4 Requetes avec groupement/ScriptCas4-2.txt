@@ -1,0 +1,32 @@
+SET LINESIZE 150
+
+REM Cas4-2 SQL LMD : Requetes avec GROUP BY et jointure externe
+
+
+REM *****************************************************************************************
+REM Analyser les variantes de la requête suivante : pour chaque pilote, son nombre de départs
+
+
+SELECT P.matricule, P.nomPrenomPilote, count(*) AS "Nombre de départ"
+FROM pilote P, depart D
+WHERE d.matricule=P.matricule
+GROUP BY P.matricule, P.nomPrenomPilote 
+ORDER BY 3 DESC
+/
+
+SELECT P.matricule, P.nomPrenomPilote, count(D.Numvol) AS "Nombre de départ"
+FROM pilote P LEFT JOIN depart D ON d.matricule=P.matricule
+GROUP BY P.matricule, P.nomPrenomPilote 
+ORDER BY 3 DESC
+/
+
+
+REM *******************************A CORRIGER **************************************
+REM La variante suivante de la requête précédente génère une anomalie. Pourquoi ?
+
+
+SELECT P.matricule, P.nomPrenomPilote, count(*) AS "Nombre de départ"
+FROM pilote P LEFT JOIN depart D ON d.matricule=P.matricule
+GROUP BY P.matricule, P.nomPrenomPilote 
+ORDER BY 3 DESC
+/

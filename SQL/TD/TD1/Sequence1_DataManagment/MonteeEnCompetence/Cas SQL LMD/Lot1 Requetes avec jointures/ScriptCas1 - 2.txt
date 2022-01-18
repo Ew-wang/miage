@@ -1,0 +1,35 @@
+SET LINESIZE 150
+
+REM -> Cas1-2 SQL LMD : Jointures et autres critères
+
+REM INFO -> On peut combiner des jointures avec d'autres critères de sélection
+
+
+REM **********************************************************************************************
+REM Etudiez les variantes de requête suivante : Les pilotes qui font des départs sur le vol 'AF900' ?
+
+REM -> Jointure prédicative
+
+SELECT P.matricule, P.nomPrenomPilote, D.numvol
+FROM pilote P, Depart D
+WHERE P.matricule=d.matricule AND D.Numvol = 'AF900'
+ORDER BY 1
+/
+
+REM -> Jointure avec INNER JOIN
+
+SELECT P.matricule, P.nomPrenomPilote, D.numvol
+FROM pilote P INNER JOIN Depart D ON P.matricule=d.matricule
+WHERE D.Numvol = 'AF900'
+ORDER BY 1
+/
+
+
+REM *************************** A CORRIGER **************************************************************
+REM La requête suivante ne donne pas le bon résultat pour la demande suivante : 
+REM Les pilotes qui font des départs sur les vol : 'AF421', 'AF422'?
+
+SELECT P.matricule, P.nomPrenomPilote, D.numvol
+FROM pilote P, Depart D
+WHERE P.matricule=D.matricule AND D.Numvol = 'AF421' OR D.Numvol = 'AF422'
+/

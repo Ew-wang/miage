@@ -1,0 +1,61 @@
+SET LINESIZE 150
+COLUMN  "Mois-Année" FORMAT a15
+
+
+
+REM -> Cas5-1 SQL LMD : Gestion des dates
+
+REM INFO -> Le type DATE sous Oracle est par défaut au format DD/MM/YYYY HH24:MI:SS
+REM INFO -> Les fonctions TO_CHAR et TO_DATE permettent de gérer les conversion de dates
+
+
+REM *********************************************************************************
+REM Analyser les requêtes suivantes : 
+
+REM -> Les pilotes assurant des départs le 25 décembre 2019 ?
+
+SELECT P.matricule, P.NomPrenomPilote, D.datedepart
+FROM pilote P, depart D
+WHERE P.matricule=D.matricule
+AND datedepart = '25-12-2019'
+/
+
+
+REM -> Les pilotes assurant des départs en décembre 2018 ?
+
+SELECT P.matricule, P.NomPrenomPilote, D.datedepart
+FROM pilote P, depart D
+WHERE P.matricule=D.matricule
+AND TO_CHAR(datedepart,'MM-YYYY') = '12-2019'
+/
+
+REM -> Les pilotes assurant des départs en 2019 ?
+
+SELECT P.matricule, P.NomPrenomPilote, D.datedepart
+FROM pilote P, depart D
+WHERE P.matricule=D.matricule
+AND TO_CHAR(datedepart,'YYYY') = '2019'
+/
+
+
+REM -> Le nombre de départs réalisés chaque mois ?
+
+SELECT TO_CHAR(datedepart,'MM-YYYY') as "Mois-Année", COUNT(*) as "Nombre de départs"
+FROM depart D
+GROUP BY TO_CHAR(datedepart,'MM-YYYY')
+ORDER BY 1
+/
+
+
+
+REM ****************************** A CORRIGER ***************************************************
+REM La variante suivante des requêtes précédentes génère une anomalie. Pourquoi ?
+
+
+SELECT TO_CHAR(datedepart,'MM-YYYY') as "Mois-Année", COUNT(*) as "Nombre de départs"
+FROM depart D
+GROUP BY datedepart
+ORDER BY 1
+/
+
+

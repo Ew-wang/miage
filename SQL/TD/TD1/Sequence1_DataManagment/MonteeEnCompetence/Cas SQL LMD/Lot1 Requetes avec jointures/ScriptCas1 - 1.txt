@@ -1,0 +1,38 @@
+SET LINESIZE 150
+
+REM -> Cas1-1 SQL LMD : Requêtes avec Jointures
+
+REM INFO -> Les données de 2 tables sont reliées par un critère booléen de jointure
+
+
+REM **********************************************************************************************
+REM Etudiez les variantes de la requête suivante : Les pilotes et les départs qu'ils effectuent ?
+
+REM -> Jointure prédicative
+
+SELECT P.matricule, P.nomPrenomPilote, D.numvol
+FROM pilote P, Depart D
+WHERE P.matricule=d.matricule
+ORDER BY 1
+/
+
+REM -> Jointure avec INNER JOIN
+
+SELECT P.matricule, P.nomPrenomPilote, D.numvol
+FROM pilote P INNER JOIN Depart D ON P.matricule=d.matricule
+ORDER BY 1
+/
+
+
+REM *************************** A CORRIGER **************************************************************
+REM Les variantes suivantes de la même requête génèrent une erreur. Où est l'erreur ? 
+
+SELECT P.matricule, P.nomPrenomPilote, D.numvol
+FROM pilote P, Depart D
+WHERE P.matricule=P.matricule
+/
+
+SELECT P.matricule, P.nomPrenomPilote, D.numvol
+FROM pilote P, Depart D
+WHERE Pilote.matricule=depart.matricule
+/

@@ -1,0 +1,26 @@
+SET LINESIZE 150
+
+
+REM -> Cas0-5 SQL LMD : Requêtes simples SQL avec suppression de doublons
+
+REM INFO -> DISTINCT permet de supprimer les doublons. il s'applique sur tout le SELECT
+
+REM **********************************************************************
+REM Testez et comprendre les différentes versions de la requête suivante :
+REM Quelles sont les villes d'habitation des pilotes?
+
+
+SELECT villedomicile
+FROM pilote
+/
+
+SELECT DISTINCT villedomicile
+FROM pilote
+/
+ 
+REM *********************** A CORRIGER ***********************************************
+REM Corriger la requête suivante pour qu'elle affiche la liste des prénoms sans doublons
+
+SELECT SUBSTR(NomPrenomPilote, INSTR(NomPrenomPilote,',')+1) as "Prénoms"
+FROM pilote
+/

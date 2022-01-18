@@ -1,0 +1,44 @@
+SET LINESIZE 150
+
+
+REM  -> Cas0-2 SQL LMD : Requêtes simples SQL avec tri
+
+REM INFO -> La clause ORDER BY permet de préciser la (es) colonne (s) de tri
+
+REM **********************************************************************
+REM Testez et comprendre les différentes versions de la requête suivante :
+REM Quels sont les pilotes de la base triés par salaire?
+
+
+SELECT matricule, nomPrenomPilote, salaire
+FROM pilote
+ORDER BY salaire
+/
+SELECT matricule, nomPrenomPilote, salaire
+FROM pilote
+ORDER BY salaire ASC
+/
+
+SELECT matricule, nomPrenomPilote, salaire
+FROM pilote
+ORDER BY salaire DESC
+/
+
+SELECT matricule, nomPrenomPilote, salaire
+FROM pilote
+ORDER BY 3 ASC
+/
+
+SELECT matricule, nomPrenomPilote, salaire as "Salaire Pilote"
+FROM pilote
+ORDER BY "Salaire Pilote"
+/
+
+
+REM ******************A DEVINER ************************************************************
+REM Saurez-vous devener : peut-on trier sur une colonne non affichée ? OUI / NON ?
+
+SELECT matricule, nomPrenomPilote
+FROM pilote
+ORDER BY salaire DESC
+/

@@ -1,0 +1,48 @@
+SET LINESIZE 150
+
+
+REM -> Cas0-7 SQL LMD : Requêtes avec valeurs nulles
+
+REM INFO -> La valeur NULL est un état des données. 
+REM INFO -> On attribut un état NULL à une valeur lorsque la donnée n'est pas renseignée ou connue
+REM INFO -> L'état NULL est applicable quelque soit le type de la colonne
+
+
+REM ******************************************************************************
+REM Testez et comprendre les requêtes suivantes : 
+
+REM -> Les pilotes sans salaire ?
+
+SELECT matricule, nomprenompilote, salaire FROM pilote WHERE salaire IS NULL
+/
+
+SELECT matricule, nomprenompilote, NVL(TO_CHAR(salaire), 'Pas de salaire') AS "SALAIRE" 
+FROM pilote WHERE salaire IS NULL
+/
+
+REM -> Les pilotes avec salaire ?
+
+SELECT * FROM pilote WHERE salaire IS NOT NULL
+/
+
+SELECT * FROM pilote WHERE 1=1
+/
+
+REM ******************************* A CORRIGER ******************************************************************
+REM Les requêtes suivantes ne donnent pas le bon résultat. pourquoi ?
+
+REM -> Les pilotes sans salaire ?
+SELECT * FROM pilote WHERE salaire = NULL
+/
+
+REM -> Les pilotes avec salaire ?
+SELECT * FROM pilote WHERE salaire != NULL
+/
+
+REM -> Les pilotes de la base ?
+SELECT * FROM pilote WHERE NULL=NULL
+/
+
+SELECT matricule, nomprenompilote, NVL(salaire, 'Pas de salaire') AS "SALAIRE" 
+FROM pilote WHERE salaire IS NULL
+/

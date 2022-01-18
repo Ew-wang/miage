@@ -1,0 +1,47 @@
+SET LINESIZE 150
+
+REM -> Cas1-3 SQL LMD : autres syntaxes de jointure
+
+REM INFO -> Il existe plusieurs autres syntaxes SQL norme pour écrire des jointures
+
+
+REM **********************************************************************************************
+REM Etudiez les variantes de la requête suivante : Les pilotes qui font des départs ?
+
+REM -> Jointure par sous requête IN 
+
+SELECT P.matricule, P.nomPrenomPilote
+FROM pilote P
+WHERE P.matricule IN (SELECT d.matricule FROM depart d)
+ORDER BY 1
+/
+
+REM -> Jointure par sous requête EXISTS
+
+SELECT P.matricule, P.nomPrenomPilote
+FROM pilote P
+WHERE EXISTS ( SELECT 1 FROM depart d where P.matricule=d.matricule)
+ORDER BY 1
+/
+
+REM -> Jointure par NATURAL JOIN
+
+SELECT DISTINCT matricule AS "Numero", P.nomPrenomPilote AS "Nom Prénom du Pilote", P.villeDomicile As "Ville du Pilote"
+FROM pilote P NATURAL JOIN  Depart D
+/
+
+REM -> Jointure par JOIN USING
+
+SELECT DISTINCT matricule AS "Numero", P.nomPrenomPilote AS "Nom Prénom du Pilote", P.villeDomicile As "Ville du Pilote"
+FROM pilote P JOIN  Depart D USING (matricule)
+/
+
+
+REM *************************** A CORRIGER **************************************************************
+REM La requête suivante génère une erreur. pourquoi ? : Les pilotes et les départs qu'ils réalisent ?
+
+SELECT P.matricule, P.nomPrenomPilote, D.numvol
+FROM pilote P
+WHERE P.matricule IN (SELECT d.matricule FROM depart d)
+ORDER BY 1
+/

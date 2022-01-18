@@ -1,0 +1,37 @@
+SET LINESIZE 150
+
+
+REM -> Cas0-6 SQL LMD : Requêtes simples SQL avec calculs
+
+REM INFO -> Les fonctions d'aggrégat s'appliquent sur les valeurs d'une colonne. 
+REM INFO -> Les fonctions usuelles sont : COUNT / AVG / SUM / MIN / MAX
+
+
+REM ******************************************************************************
+REM Testez et comprendre la requête suivante : Salaire moyen des pilotes ?
+
+SELECT AVG(salaire) FROM pilote
+/
+
+REM ******************************************************************************
+REM Testez et comprendre la requête suivante : Salaire minimum et maximun des pilotes ?
+
+SELECT MIN(salaire) as "Salaire minimum", MAX(salaire) as "Salaire maximum" FROM pilote
+/
+
+
+REM ******************************************************************************
+REM Testez et comprendre les requêtes suivantes : Nombre de pilotes dans la base?
+
+SELECT COUNT(*) FROM pilote
+/
+
+SELECT 'le nombre de pilote est : '|| COUNT(matricule) as "Nombre de pilotes" FROM pilote
+/
+
+REM ******************************* A CORRIGER ******************************************************************
+REM Pour calculer le nombre de pilotes dans la base, la requête suivante ne donne pas le bon résultat. pourquoi ?
+
+SELECT 'le nombre de pilote est : '|| COUNT(grade) as "Nombre de pilotes" FROM pilote
+/
+
