@@ -11,5 +11,5 @@
 **Objectifs**
 > Apporter aux étudiants l’ensemble des compétences et techniques lié à l’optimisation des systèmes d’information des organisations de tout type de secteurs.
 
-[Cours :link:](cours.md)
+[Cours :link:](Cours.md)
 
