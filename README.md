@@ -1,4 +1,4 @@
-## Méthodes Informatiques Appliquées à la Eestion des Entreprises
+## Méthodes Informatiques Appliquées à la Gestion des Entreprises
 
 
   ![compare1](img/IUT.png)
