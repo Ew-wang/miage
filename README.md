@@ -1,7 +1,5 @@
 ## Méthodes Informatiques Appliquées à la Eestion des Entreprises
 
-<br>
-
 
   ![compare1](img/IUT.png)
 
