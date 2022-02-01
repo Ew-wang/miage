@@ -1,46 +1,24 @@
-## Cours MIAGE
+## Méthodes Informatiques Appliquées à la Eestion des Entreprises
+
+<br>
 
 
-| Formation | Semestres | Cours |
+
+
+  >Elle a pour double objectif d’assurer aux étudiant-e-s une formation approfondie dans les méthodes et les technologies informatiques permettant d’optimiser le  management des systèmes d’information des organisations, et de les préparer à l’admission au deuxième cycle universitaire, Master MIAGE. <br>
+  > Cette licence 3 se prépare dans le cadre de l’**alternance**
+
+
+**Objectifs**
+> Apporter aux étudiants l’ensemble des compétences et techniques lié à l’optimisation des systèmes d’information des organisations de tout type de secteurs.
+
+
+**Domaine / Matière**
+
+| Formation | Semestres | Domaine |
 |:-:|-|-|
 |  **MIAGE** | L3 - Semestres 5 | [Bases de données](SQL/TD.md) |
+|            |                  | [NoSQL](NoSQL/TD.md)          |
 |            |                  | [Java Avancé](JAVA2/TD.md)    |
 
 
-
-
-You can use the [editor on GitHub](https://github.com/Ew-wang/miage/edit/main/README.md) to maintain and preview the content for your website in Markdown files.
-
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
-
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/Ew-wang/miage/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
