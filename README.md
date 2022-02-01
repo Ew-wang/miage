@@ -12,12 +12,4 @@
 > Apporter aux étudiants l’ensemble des compétences et techniques lié à l’optimisation des systèmes d’information des organisations de tout type de secteurs.
 
 
-**Domaine / Matière**
-
-| Formation | Semestres | Domaine |
-|:-:|-|-|
-|  **MIAGE** | L3 - Semestres 5 | [Bases de données](SQL/TD.md) |
-|            |                  | [NoSQL](NoSQL/TD.md)          |
-|            |                  | [Java Avancé](JAVA2/TD.md)    |
-
 
