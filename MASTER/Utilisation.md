@@ -6,8 +6,8 @@ Ce projet examine les avis produits sur Amazon à travers diverses techniques de
 
 Le projet est organisé comme suit :
 
-- `fake_reviews_detection_e_com.ipynb` : Ce fichier est un notebook Jupyter qui inclut tous les scripts d'analyse et de modélisation.
-- `/data/fake_reviews_dataset.csv` : Ce dossier contient les ensembles de données exploités dans le cadre du projet.
+- `code/fake_reviews_detection_e_com.ipynb` : Ce fichier est un notebook Jupyter qui inclut tous les scripts d'analyse et de modélisation.
+- `code/data/fake_reviews_dataset.csv` : Ce dossier contient les ensembles de données exploités dans le cadre du projet.
 - `Rapport du Projet` : Inclut un rapport écrit détaillant les travaux réalisés.
 - `Présentation.pdf` : Contient une présentation du projet.
 
