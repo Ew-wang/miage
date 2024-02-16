@@ -9,7 +9,7 @@ Le projet est organisé comme suit :
 - `code/fake_reviews_detection_e_com.ipynb` : Ce fichier est un notebook Jupyter qui inclut tous les scripts d'analyse et de modélisation.
 - `code/data/fake_reviews_dataset.csv` : Ce dossier contient les ensembles de données exploités dans le cadre du projet.
 - `Rapport du Projet` : Inclut un rapport écrit détaillant les travaux réalisés.
-- `Présentation.pdf` : Contient une présentation du projet.
+- `Etude _de_Cas.pdf` : Contient une présentation du projet.
 
 ### `fake_reviews_detection_e_com.py`
 
