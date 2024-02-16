@@ -8,7 +8,6 @@ Le projet est organisé comme suit :
 
 - `fake_reviews_detection_e_com.ipynb` : Ce fichier est un notebook Jupyter qui inclut tous les scripts d'analyse et de modélisation.
 - `/data/fake_reviews_dataset.csv` : Ce dossier contient les ensembles de données exploités dans le cadre du projet.
-- `Readme.md` : Fournit un guide détaillé d'utilisation du projet.
 - `Rapport du Projet` : Inclut un rapport écrit détaillant les travaux réalisés.
 - `PPT` : Contient une présentation PowerPoint du projet.
 
@@ -20,9 +19,6 @@ Le projet est organisé comme suit :
 ### Dossier `/data`
 
 - `fake_reviews_dataset.csv` : Dataset contenant les avis produits qui seront analysés et utilisés pour entraîner les modèles de détection de faux avis.
-
-### Readme
-- `Readme.md` : Offre un guide d'utilisation détaillé pour naviguer et comprendre le fonctionnement du notebook `EDC.ipynb`.
 
 ## Rapport du Projet
 
