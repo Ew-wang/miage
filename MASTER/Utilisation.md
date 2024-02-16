@@ -7,7 +7,7 @@ Ce projet examine les avis produits sur Amazon à travers diverses techniques de
 Le projet est organisé comme suit :
 
 - `EDC.ipynb` : Ce fichier est un notebook Jupyter qui inclut tous les scripts d'analyse et de modélisation.
-- `/data` : Ce dossier contient les ensembles de données exploités dans le cadre du projet.
+- `/data/fake_reviews_dataset.csv` : Ce dossier contient les ensembles de données exploités dans le cadre du projet.
 - `Readme.md` : Fournit un guide détaillé d'utilisation du projet.
 - `Rapport du Projet` : Inclut un rapport écrit détaillant les travaux réalisés.
 - `PPT` : Contient une présentation PowerPoint du projet.
